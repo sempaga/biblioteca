@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Autores{% endblock %}
+
+{% block body %}
+<h1>Lista de autores</h1>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Apodo</th>
+            <th>Tipo</th>
+          </tr>
+        </thead>
+          
+        <tbody>
+          {% for autor in autores %}
+          <tr> 
+            <td>{{ autor.id }}</td>
+            <td>{{ autor.nombre }}</td>
+            <td>{{autor.apellido}} </td>
+            <td>{{autor.apodo}} </td>
+            <td>{{autor.tipo}} </td>
+            <td>
+               <a class="btn btn-outline-primary" href="{{  path('ver-autor', {id: autor.id})    }}" role="button">Consultar</a>
+               <a class="btn btn-outline-primary" href="{{  path('edit-autor', {id: autor.id})    }}" role="button">Editar</a>
+               <a class="btn btn-outline-primary" href="{{  path('remove-autor', {id: autor.id})    }}" role="button">Eliminar</a>
+            </td>  
+          </tr>
+          {% endfor %}
+        </tbody>
+
+    </table>
+    <a class="btn btn-outline-primary" href="{{  path('new-autor')}}" role="button">Nuevo Autor</a>
+</div>
+{% endblock %}

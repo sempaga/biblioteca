@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Libros{% endblock %}
+
+{% block body %}
+<h1>Lista de libros</h1>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th>ISBN</th>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Editorial</th>
+            <th>Edicion</th>
+            <th>Publicacion</th>
+            <th>Categoria</th>
+          </tr>
+        </thead>
+          
+        <tbody>
+          {% for libro in libros %}
+            <tr>
+                <td>{{ libro.id }}</td>
+                <td>{{ libro.isbn }}</td>
+                <td>{{ libro.titulo }}</td>
+                <td>
+                {% for autor in libro.autores %} 
+                    <p>{{ autor.nombre }} ( {{ autor.tipo}} ) </p>
+                {% else %} 
+                    <div>Anónimo / Desconocido</div>
+                {% endfor %}
+                </td>
+                <td>{{ libro.editorial.nombre }}</td>
+                <td>{{ libro.edicion }}</td>
+                <td>{{ libro.publicacion }}</td>
+                <td>{{ libro.categoria }}</td>
+                <td>
+                    <a href="{{ path('ver-libro', {'id': libro.id}) }}">Ver</a>
+                    <a href="{{ path('edit-libro', {'id': libro.id}) }}">editar</a>
+                    <a href="{{ path('remove-libro', {'id': libro.id}) }}">eliminar</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+          
+        </tbody>
+
+    </table>
+    <a class="btn btn-outline-primary" href="{{path('new-libro')}}" role="button">Nuevo Libro</a>
+</div>
+{% endblock %}
+

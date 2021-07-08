@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ficha
+{% endblock %}
+
+{% block body %}
+
+	<h1>Ficha del Editorial
+	</h1>
+
+	<p>Nombre:
+		{{ editorial.nombre }}
+    </p>
+	<p>Pais:
+		{{ editorial.pais }}
+    </p>
+	
+	 <a class="btn btn-outline-primary" href="{{  path('editorial') }}" role="button">Volver a los Autores</a>
+	  <a class="btn btn-outline-primary" href="{{  path('edit-editorial', {id: editorial.id})    }}" role="button">Editar</a>
+	  <a class="btn btn-outline-primary" href="{{  path('remove-editorial', {id: editorial.id})    }}" role="button">Eliminar</a>
+	 
+
+{% endblock %}

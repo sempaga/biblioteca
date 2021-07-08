@@ -1,0 +1,76 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+home:
+    path: /
+    controller: App\Controller\PublicController::home
+#AUTORES: 
+autor:
+    path: /autor
+    controller: App\Controller\AutorController::index
+
+ver-autor:
+    path: /autor/ver/{id}
+    controller: App\Controller\AutorController::ver
+new-autor:
+    path: /autor/new
+    controller: App\Controller\AutorController::new
+create-autor:
+    path: /autor/create
+    controller: App\Controller\AutorController::create
+edit-autor:
+    path: /autor/{id}/edit
+    controller: App\Controller\AutorController::edit
+update-autor:
+    path: /autor/{id}/update
+    controller: App\Controller\AutorController::update
+remove-autor:
+    path: /autor/{id}/remove
+    controller: App\Controller\AutorController::remove
+
+#LIBROS: 
+libro: 
+    path: /libro
+    controller: App\Controller\LibroController::index
+ver-libro: 
+    path: /libro/{id}/ver
+    controller: App\Controller\LibroController::ver
+new-libro: 
+    path: /libro/new
+    controller: App\Controller\LibroController::new
+edit-libro: 
+    path: /libro/{id}/edit
+    controller: App\Controller\LibroController::edit
+update-libro:
+    path: /libro/{id}/update
+    controller: App\Controller\LibroController::update
+remove-libro: 
+    path: /libro/{id}/remove
+    controller: App\Controller\LibroController::remove
+create-libro:
+    path: /libro/create
+    controller: App\Controller\LibroController::create
+
+#EDITORIALES: 
+editorial: 
+    path: /editorial
+    controller: App\Controller\EditorialController::index
+ver-editorial: 
+    path: /editorial/{id}/ver
+    controller: App\Controller\EditorialController::ver
+new-editorial: 
+    path: /editorial/new
+    controller: App\Controller\EditorialController::new
+edit-editorial: 
+    path: /editorial/{id}/edit
+    controller: App\Controller\EditorialController::edit
+update-editorial:
+    path: /editorial/{id}/update
+    controller: App\Controller\EditorialController::update
+remove-editorial: 
+    path: /editorial/{id}/remove
+    controller: App\Controller\EditorialController::remove
+create-editorial:
+    path: /editorial/create
+    controller: App\Controller\EditorialController::create

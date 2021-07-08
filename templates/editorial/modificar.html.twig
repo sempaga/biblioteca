@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>FORMULARIO DE MODIFICACION DE AUTORES</h1>
+
+    <form method="POST" action="{{ path('update-editorial', {id: editorial.id}) }}"> 
+ 
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">
+            Nombre
+        </label>
+        <input type="text" name="nombre" required class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+        </div>
+        
+        
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">
+            Pais
+        </label>
+        <select name="pais" required class="form-control" id="exampleInputType">
+            {% for pais in paises %}
+               <option> {{pais}}</option>
+            {% endfor %}
+        </select>
+        </div>
+        
+        
+        <button type="submit" class="btn btn-primary">
+        Submit
+        </button>
+    </form>
+
+  
+
+{% endblock %}

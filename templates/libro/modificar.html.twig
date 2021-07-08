@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>FORMULARIO DE MODIFICACION DE Libro</h1>
+
+    <form name="libro" method="post" action="{{path('update-libro', {id: libro.id})}}">
+        <div id="libro">
+            <div  class="mb-3">
+                <label for="libro_titulo"  class="form-label">
+                    TITULO
+                </label>
+                <input type="text" name="libro[titulo]" required  id="libro_titulo" maxlength="255">
+            </div>
+            <div class="mb-3">
+                <label for="libro_isbn" class="form-label">
+                    ISBN
+                </label>
+                <input type="text" name="libro[isbn]" required  id="libro_isbn" maxlength="17">
+            </div>
+            <div class="mb-3">
+                <label for="libro_edicion" class="form-label">
+                    EDICION
+                </label>
+                <input type="number" name="libro[edicion]" class="form-control" id="libro_edicion">
+            </div>
+            <div class="mb-3">
+                <label for="libro_publicacion" class="form-label">
+                    PUBLICACION
+                </label>
+                <input type="number" name="libro[publicacion]"  class="form-control" id="libro_publicacion">
+            </div>
+            <div class="mb-3">
+            <label for="libro_categoria" class="form-label">
+                CATEGORIA
+            </label>
+            <input type="text" name="libro[categoria]" requiered class="form-control" id="libro_categoria" maxlength="50">
+            </div>
+            
+            <div class="mb-3">
+                <label for="libro_autores" class="form-label">
+                    AUTORES
+                </label>
+                <select name="libro[autores][]" required class="form-control" id="libro_autores" multiple>
+                    {% for autor in autores %}
+                        <option value='{{autor.id}}'>{{autor.apellido}} </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+            <label for="libro_editorial" class="form-label">
+                EDITORIAL
+            </label>
+            <select name="libro[editorial]"  class="form-control" id="libro_editorial" >
+                {% for editorial in editoriales %}
+                    <option value='{{editorial.id}}'>{{editorial.nombre}} </option>
+                {% endfor %}
+            </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+        Submit
+        </button>
+    </form>
+  
+
+{% endblock %}

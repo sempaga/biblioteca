@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ficha
+{% endblock %}
+
+{% block body %}
+
+	<h1>Ficha del titulo
+	<table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ libro.id }}</td>
+            </tr>
+            <tr>
+                <th>Titulo</th>
+                <td>{{ libro.titulo }}</td>
+            </tr>
+            <tr>
+                <th>Isbn</th>
+                <td>{{ libro.isbn }}</td>
+            </tr>
+            <tr>
+                <th>Autores</th>
+                <td>
+                    {% for autor in libro.autores %} 
+                        <p>{{ autor.nombre }} {{autor.apellido}} ( {{ autor.tipo}} ) </p>
+                    {% else %} 
+                        <div>Anónimo / Desconocido</div>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Editorial</th>
+                <td>{{ libro.editorial.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Edicion</th>
+                <td>{{ libro.edicion }}</td>
+            </tr>
+            <tr>
+                <th>Publicacion</th>
+                <td>{{ libro.publicacion }}</td>
+            </tr>
+            <tr>
+                <th>Categoria</th>
+                <td>{{ libro.categoria }}</td>
+            </tr>
+        </tbody>
+    </table>
+	 <a class="btn btn-outline-primary" href="{{  path('libro') }}" role="button">Volver a los Libros</a>
+	  <a class="btn btn-outline-primary" href="{{  path('edit-libro', {id: libro.id})    }}" role="button">Editar</a>
+	  <a class="btn btn-outline-primary" href="{{  path('remove-libro', {id: libro.id})    }}" role="button">Eliminar</a>
+	 
+
+{% endblock %}

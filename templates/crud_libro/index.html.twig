@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Libro index{% endblock %}
+
+{% block body %}
+    <h1>Libro index</h1>
+    {% for mensaje in app.flashes('info') %}
+        <div class='flash-notice'>
+            {{mensaje}}
+        </div>
+        
+    {% endfor %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Isbn</th>
+                <th>Edicion</th>
+                <th>Publicacion</th>
+                <th>Categoria</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for libro in libros %}
+            <tr>
+                <td>{{ libro.id }}</td>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.isbn }}</td>
+                <td>{{ libro.edicion }}</td>
+                <td>{{ libro.publicacion }}</td>
+                <td>{{ libro.categoria }}</td>
+                <td>
+                    <a href="{{ path('c_r_u_d_libro_show', {'id': libro.id}) }}">show</a>
+                    <a href="{{ path('c_r_u_d_libro_edit', {'id': libro.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('c_r_u_d_libro_new') }}">Create new</a>
+{% endblock %}

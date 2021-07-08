@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ficha
+{% endblock %}
+
+{% block body %}
+
+	<h1>Ficha del autor
+	</h1>
+
+	<p>Nombre:
+		{{ autor.nombre }}
+    </p>
+	<p>Apellido:
+		{{ autor.apellido }}
+    </p>
+	<p>Apodo:
+		{% if autor.apodo %}
+            {{autor.apodo}}
+        {% endif %}     
+	</p>
+    <p>Tipo:
+        {{autor.tipo}}
+    </p>
+	 <a class="btn btn-outline-primary" href="{{  path('autor') }}" role="button">Volver a los Autores</a>
+	  <a class="btn btn-outline-primary" href="{{  path('edit-autor', {id: autor.id})    }}" role="button">Editar</a>
+	  <a class="btn btn-outline-primary" href="{{  path('remove-autor', {id: autor.id})    }}" role="button">Eliminar</a>
+	 
+
+{% endblock %}
